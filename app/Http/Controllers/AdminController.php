@@ -37,4 +37,16 @@ class AdminController extends Controller
             "New_news" => $news,
         ]);
 }
+    function edit(Request $request){
+        $news = News::find($request->id)->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'attachment' => $request->attachment,
+            'age_restriction' => $request->age_restriction,
+            'admin_id' => 1,
+        ]);
+        return response()->json([
+            "Updated_news" => $news,
+        ]);
+    }
 }
