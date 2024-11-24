@@ -16,3 +16,4 @@ Route::post("/edit/{id}",[AdminController::class, "edit_news"]);
 Route::post("/delete/{id}",[AdminController::class, "delete_news"]);
 Route::get('/news', [NewsController::class, 'allowed_news']);
 Route::post('/news/{news_id}/articles', [ArticleController::class, 'add_article']);
+Route::post('/news_requests', [NewsRequestController::class, 'request_news']);

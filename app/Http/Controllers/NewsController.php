@@ -13,7 +13,9 @@ class NewsController extends Controller
                     ->orWhere('age_restriction', '<=', auth()->user()->age)
                     ->get();
 
-        return response()->json($news);
+        return response()->json([
+            "Allowed_news" => $news,
+        ]);
 }
 
 }
