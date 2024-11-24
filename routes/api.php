@@ -11,3 +11,4 @@ use App\Http\Controllers\AdminController;
 
 
 Route::post("/add",[AdminController::class, "add_admin"]);
+Route::post("/news",[AdminController::class, "post"]);
