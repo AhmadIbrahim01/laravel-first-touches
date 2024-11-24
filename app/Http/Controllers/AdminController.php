@@ -24,7 +24,7 @@ class AdminController extends Controller
         ]);
     }
 
-    function post(Request $request){
+    function post_news(Request $request){
 
         $news = News::create([
             'title' => $request->title,
@@ -37,7 +37,7 @@ class AdminController extends Controller
             "New_news" => $news,
         ]);
 }
-    function edit(Request $request){
+    function edit_news(Request $request){
         $news = News::find($request->id)->update([
             'title' => $request->title,
             'content' => $request->content,
@@ -47,6 +47,13 @@ class AdminController extends Controller
         ]);
         return response()->json([
             "Updated_news" => $news,
+        ]);
+    }
+    function delete_news($id){
+        $news = News::find($id)->delete();
+
+        return response()->json([
+            "Deleted_news" => $news,
         ]);
     }
 }
